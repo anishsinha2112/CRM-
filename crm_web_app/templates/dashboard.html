@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dashboard</title>
+    <style>table, td, th { border: 1px solid black; padding: 5px; border-collapse: collapse; }</style>
+</head>
+<body>
+<h2>Welcome to CRM Dashboard</h2>
+<form method="post">
+  Name: <input name="name"> Email: <input name="email">
+  Phone: <input name="phone"> Company: <input name="company"><br>
+  Follow-up Date: <input name="follow_up_date" type="date">
+  Time: <input name="follow_up_time" type="time"> Remark: <input name="remark">
+  <button type="submit">Add Customer</button>
+</form>
+<br>
+<table>
+<tr><th>Name</th><th>Email</th><th>Phone</th><th>Company</th><th>Date</th><th>Time</th><th>Remark</th><th>Action</th></tr>
+{% for c in customers %}
+<tr>
+  <td>{{ c.name }}</td><td>{{ c.email }}</td><td>{{ c.phone }}</td>
+  <td>{{ c.company }}</td><td>{{ c.follow_up_date }}</td><td>{{ c.follow_up_time }}</td><td>{{ c.remark }}</td>
+  <td>
+    <a href="tel:{{ c.phone }}">Call</a> |
+    <a href="https://wa.me/{{ c.phone }}">WhatsApp</a>
+  </td>
+</tr>
+{% endfor %}
+</table>
+<br>
+<a href="/export/csv">Export to CSV</a> |
+<a href="/export/excel">Export to Excel</a> |
+<a href="/logout">Logout</a>
+</body>
+</html>

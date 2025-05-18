@@ -1,0 +1,20 @@
+🌐 Option 1: Run on Local Network (Mobile/Desktop on Same Wi-Fi)
+🔧 Step-by-step:
+Find your IP address:
+
+Open terminal/command prompt.
+
+Run:
+
+ipconfig   # (Windows)
+ifconfig   # (Linux/macOS)
+Look for something like: IPv4 Address: 192.168.1.50
+
+Run Flask app like this:(to run the CRM first, we have to run this command in the command prompt)
+
+python app.py --host=0.0.0.0
+On another device, open a browser and go to:
+
+
+http://192.168.1.50:5000/
+This way, anyone connected to your Wi-Fi can access your CRM.
